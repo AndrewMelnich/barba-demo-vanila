@@ -59,8 +59,8 @@ function pageAnimIn2(container){
       transformOrigin: 'top left',
     })
     .to(container.querySelector('.main-inner__text'), {
-      duration: .4,
-      opacity: 1,
+      duration: .8,
+      opacity: 0,
     })
     .to(container.querySelector('.main-inner__img'), {
       duration: .3,
