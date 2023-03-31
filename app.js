@@ -1,14 +1,11 @@
 const tl = gsap.timeline();
 // console.log(gsap);
 
-document.querySelectorAll('.menu-item__link')
-  .forEach(el => el.addEventListener('click'), e => {
-    e.preventDefault();
-  })
+
 
 function pageAnimBeforeOut(container){
   return tl
-  .to(container.querySelector('.main__inner-text'), {
+  .to(container.querySelector('.main-inner__text'), {
     x: 100,
     opacity: 0,
     duration: .2
@@ -62,14 +59,14 @@ function pageAnimIn2(container){
       transformOrigin: 'top left',
     })
     .to(container.querySelector('.main-inner__text'), {
+      duration: .4,
       opacity: 1,
-      duration: .5
     })
     .to(container.querySelector('.main-inner__img'), {
-      y: 100,
+      duration: .3,
+      // y: 100,
       scale: 5,
       opacity: 1,
-      duration: .2
     })
 }
 
@@ -80,14 +77,14 @@ function pageAnimOut2(container){
       scaleX: 1,
       transformOrigin: 'top right',
     })
-    .from(container.querySelector('.main__inner-text'), {
+    .from(container.querySelector('.main-inner__text'), {
       x: -800,
-      duration: .5,
+      duration: .4,
       opacity: 1,
     }, '<')
-    .from(container.querySelector('.main__inner-img'), {
-      duration: .2,
-      y: 100,
+    .from(container.querySelector('.main-inner__img'), {
+      duration: .3,
+      // y: 100,
       scale: 5,
       opacity: 1,
     })
@@ -112,3 +109,9 @@ barba.init({
   }]
 });
 
+document.querySelectorAll('.menu-item__link')
+  .forEach(el => {
+    el.addEventListener('click', e => {
+      e.preventDefault();
+    })
+  })
