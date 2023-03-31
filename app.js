@@ -1,6 +1,11 @@
 const tl = gsap.timeline();
 // console.log(gsap);
 
+document.querySelectorAll('.menu-item__link')
+  .forEach(el => el.addEventListener('click'), e => {
+    e.preventDefault();
+  })
+
 function pageAnimBeforeOut(container){
   return tl
   .to(container.querySelector('.main__inner-text'), {
@@ -56,11 +61,11 @@ function pageAnimIn2(container){
       scaleX: 1,
       transformOrigin: 'top left',
     })
-    .to(container.querySelector('.main__inner-text'), {
+    .to(container.querySelector('.main-inner__text'), {
       opacity: 1,
       duration: .5
     })
-    .to(container.querySelector('.main__inner-img'), {
+    .to(container.querySelector('.main-inner__img'), {
       y: 100,
       scale: 5,
       opacity: 1,

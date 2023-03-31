@@ -24,7 +24,7 @@ body {
   margin-bottom: 10px;
 }
 
-.menu-item-desc{
+.menu-item__link{
   color: antiquewhite;
   text-decoration: none;
 }
@@ -38,7 +38,7 @@ body {
   /* height: 100%; */
 }
 
-.main__inner-text{
+.main-inner__text{
   margin: 0;
   position: absolute;  
   left: 50%;           
@@ -47,7 +47,7 @@ body {
   opacity: 1;
 }
 
-.main__inner-img{
+.main-inner__img{
   position: absolute;
   bottom: 0;
   right: 0;
