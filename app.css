@@ -9,6 +9,7 @@ body {
 
 .wrapper {
   display: flex;
+  flex-direction: row;
 }
 
 .menu {
@@ -26,7 +27,6 @@ body {
   justify-content: center;
   padding: 0;
   align-items: center;
-  /* margin: 0 auto; */
 }
 
 .menu-item{
@@ -117,3 +117,48 @@ body {
   /* z-index: 90; */
 }
 
+
+@media (max-width: 600px) {
+  body {
+    font-size: 24px;
+  }
+
+  .wrapper{
+    flex-direction: column;
+  }
+  
+  .menu{
+    position: absolute;
+    bottom: 0;
+    padding: 0;
+    height: 10%;
+    width: 100%;
+    z-index: 50;
+    text-align: none;
+  }
+
+  .menu :last-child{
+    margin-right: 0;
+  }
+
+  .menu-list{
+    flex-direction: row;
+  }
+
+  .menu-item{
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+/* 
+  .menu-item :last-child{
+    margin-right: 0;
+    color: red;
+  } */
+
+  .parallelogram-wrapper{
+    left: -200px;	
+    height: 100%;
+    width: 800px;
+    /* transform: scaleX(0); */
+  }
+}

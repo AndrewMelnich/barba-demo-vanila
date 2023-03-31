@@ -6,7 +6,7 @@ const tl = gsap.timeline();
 function pageAnimBeforeOut(container){
   return tl
   .to(container.querySelector('.main-inner__text'), {
-    x: 100,
+    x: 200,
     opacity: 0,
     duration: .2
   })
