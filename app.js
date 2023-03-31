@@ -10,81 +10,100 @@ function pageAnimBeforeOut(container){
   })
 }
 
-function pageAnimOut(container){
-  return tl.
-  from(container.querySelector('.parallelogram'), {
-    width: '120vw',
-    duration: .7
-  }).
-  from(container.querySelector('.main__inner-text'), {
-    x: -800,
-    opacity: 1,
-    duration: .3
-  })
-  .from(container.querySelector('.main__inner-img'), {
-    y: 100,
-    scale: 5,
-    opacity: 1,
-    duration: .3
-  })
+// function pageAnimOut(container){
+//   return tl.
+//   from(container.querySelector('.parallelogram'), {
+//     width: '120vw',
+//     duration: .7
+//   }).
+//   from(container.querySelector('.main__inner-text'), {
+//     x: -800,
+//     opacity: 1,
+//     duration: .3
+//   })
+//   .from(container.querySelector('.main__inner-img'), {
+//     y: 100,
+//     scale: 5,
+//     opacity: 1,
+//     duration: .3
+//   })
+// }
+
+// function pageAnimIn(container){
+//   return tl
+//   .to(container.querySelector('.parallelogram'), {
+//     // left: 500,
+//     width: '120vw',
+//     duration: .7
+
+//   })
+//   .to(container.querySelector('.main__inner-text'), {
+//     opacity: 1,
+//     duration: .5
+//   })
+//   .to(container.querySelector('.main__inner-img'), {
+//     y: 100,
+//     scale: 5,
+//     opacity: 1,
+//     duration: .5
+//   })
+// }
+
+function pageAnimIn2(container){
+  return tl
+    .to(container.querySelector('.parallelogram-wrapper'), {
+      duration: .7,
+      scaleX: 1,
+      transformOrigin: 'top left',
+    })
+    .to(container.querySelector('.main__inner-text'), {
+      opacity: 1,
+      duration: .5
+    })
+    .to(container.querySelector('.main__inner-img'), {
+      y: 100,
+      scale: 5,
+      opacity: 1,
+      duration: .2
+    })
 }
 
-function pageAnimIn(container){
+function pageAnimOut2(container){
   return tl
-  .to(container.querySelector('.parallelogram'), {
-    // left: 500,
-    width: '120vw',
-    duration: .7
-  })
-  .to(container.querySelector('.main__inner-text'), {
-    opacity: 1,
-    duration: .5
-  })
-  .to(container.querySelector('.main__inner-img'), {
-    y: 100,
-    scale: 5,
-    opacity: 1,
-    duration: .5
-  })
-  
-
-  // return tl.to(".preloader-round", {duration: 0.7, scale: 2, opacity: 0.5});
+    .from(container.querySelector('.parallelogram-wrapper'), {
+      duration: .7,
+      scaleX: 1,
+      transformOrigin: 'top right',
+    })
+    .from(container.querySelector('.main__inner-text'), {
+      x: -800,
+      duration: .5,
+      opacity: 1,
+    }, '<')
+    .from(container.querySelector('.main__inner-img'), {
+      duration: .2,
+      y: 100,
+      scale: 5,
+      opacity: 1,
+    })
 }
 
 
 
 barba.init({
+  preventRunning: true,
   transitions: [{
     name: 'default-transition',
     async beforeLeave(data) {
       await pageAnimBeforeOut(data.current.container);
     },
     async leave(data) {
-      await pageAnimIn(data.current.container);
+      await pageAnimIn2(data.current.container);
       data.current.container.remove();
     },
     async enter(data) {
-      await pageAnimOut(data.next.container);
+      await pageAnimOut2(data.next.container);
     }
   }]
 });
 
-// barba.init({
-//   transitions: [{
-//     name: 'opacity-transition',
-//     leave(data) {
-//       return gsap.to(data.current.container, {
-//         duration: 0.7, 
-//         scale: 2,
-//         opacity: 0
-//       });
-//     },
-//     enter(data) {
-//       return gsap.from(data.next.container, {
-//         duration: 0.7, 
-//         scale: 2,
-//         opacity: 0
-//       });
-//     }
-//   }]
-// });

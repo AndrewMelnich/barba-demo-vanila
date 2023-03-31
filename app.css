@@ -71,7 +71,7 @@ body {
   transform: scale(0);
 }
 
-.parallelogram{
+/* .parallelogram{
   position: absolute;
   top: 0;
   left: -150px;
@@ -81,5 +81,24 @@ body {
 	   -moz-transform: skew(20deg);
 	     -o-transform: skew(20deg);
 	background: #AEC670;
+} */
+
+.parallelogram-wrapper{
+  /* z-index: 100; */
+  position: absolute;
+  top: 0;
+  left: -150px;	
+  height: 100%;
+	width: 150%;
+  transform: scaleX(0);
+}
+.parallelogram{
+  height: 100%;
+	width: 100%;
+	-webkit-transform: skew(20deg);
+	   -moz-transform: skew(20deg);
+	     -o-transform: skew(20deg);
+	background: #AEC670;
+  /* z-index: 90; */
 }
 
